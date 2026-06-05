@@ -1,0 +1,10 @@
+Option Explicit
+
+Private Sub Worksheet_Change(ByVal Target As Range)
+    On Error GoTo SafeExit
+    If Intersect(Target, Me.Range("C12,C13,C14")) Is Nothing Then Exit Sub
+    Application.EnableEvents = False
+    RedibujarInputs_FSH Me
+SafeExit:
+    Application.EnableEvents = True
+End Sub
